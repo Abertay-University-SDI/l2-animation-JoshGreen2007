@@ -65,6 +65,7 @@ void Animation::animate(float dt)
 			setPlaying(false);
 		}
 	}
+
 	m_elapsedTime = 0;
 	
 }

@@ -13,6 +13,7 @@ public:
 
 private:
 
-	// Sheep member variables here
+	Animation m_walkDown;
+	Animation* m_currentAnimation;
 
 };

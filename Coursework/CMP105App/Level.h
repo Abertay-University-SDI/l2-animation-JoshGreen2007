@@ -30,6 +30,6 @@ private:
 	Player m_player;
 	Player m_walkDown;
 	Player m_currentAnimation;
-	sf::Texture *m_playerTexture;
+	sf::Texture m_playerTexture;
 
 };

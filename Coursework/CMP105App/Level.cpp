@@ -4,10 +4,10 @@ Level::Level(sf::RenderWindow& hwnd, Input& in) :
 	BaseLevel(hwnd, in)
 {
 
-	if (!m_playerTexture.loadFromFile("gfx/sheep_sheet.png"))
+	if (!m_playerTexture.loadFromFile("gfx/pig_sheet.png"))
 	{
 
-		std::cerr << "No Sheep image found\n";
+		std::cerr << "No Pig image found\n";
 
 	}
 

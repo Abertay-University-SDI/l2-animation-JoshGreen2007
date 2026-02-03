@@ -4,9 +4,12 @@
 Player::Player() 
 {
 
+	setOrigin({ 32.f, 32.f });
+
 	for (int i = 0; i < 4; i++) 
 	{
 
+		// Dimensions: (x, y), and (width, height)
 		m_walkDown.addFrame(sf::IntRect({ i * 64,0 }, { 64, 64 }));
 
 	}
@@ -23,6 +26,24 @@ Player::Player()
 
 	m_walkUp.setLooping(true); //Loop animation forever
 	m_walkUp.setFrameSpeed(1.f / 4.f); //Change frame every 0.25 seconds
+
+	for (int i = 0; i < 4; i++)
+	{
+
+		m_walkSideways.addFrame(sf::IntRect({ (i * 64), 128 }, { 64, 64 }));
+
+	}
+
+	m_walkSideways.setLooping(true); //Loop animation forever
+	m_walkSideways.setFrameSpeed(1.f / 4.f); //Change frame every 0.25 seconds
+
+	for (int i = 0; i < 4; i++)
+	{
+
+		m_walkUpSideways.addFrame(sf::IntRect({ (i * 64), 64 }, { 64, 64 }));
+
+	}
+
 
 	//Set default animation
 	m_currentAnimation = &m_walkDown;
@@ -74,6 +95,7 @@ void Player::handleInput(float dt)
 		{
 
 			m_direction = Direction::UP;
+		
 
 		}
 
@@ -95,6 +117,23 @@ void Player::handleInput(float dt)
 		{
 
 			m_currentAnimation = &m_walkUp;
+			setScale({ 1.f, 1.f });
+
+		}
+
+		if (m_direction == Direction::UP_LEFT)
+		{
+
+			m_currentAnimation = &m_walkUpSideways;
+			setScale({ -1.f, 1.f });
+
+		}
+
+		if (m_direction == Direction::UP_RIGHT)
+		{
+
+			m_currentAnimation = &m_walkUpSideways;
+			setScale({ 1.f, 1.f });
 
 		}
 
@@ -102,6 +141,23 @@ void Player::handleInput(float dt)
 		{
 
 			m_currentAnimation = &m_walkDown;
+			setScale({ 1.f, 1.f });
+
+		}
+
+		if (m_direction == Direction::LEFT)
+		{
+
+			m_currentAnimation = &m_walkSideways;
+			setScale({ -1.f, 1.f });
+
+		}
+
+		if (m_direction == Direction::RIGHT)
+		{
+
+			m_currentAnimation = &m_walkSideways;
+			setScale({ 1.f, 1.f });
 
 		}
 

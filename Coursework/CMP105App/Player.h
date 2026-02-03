@@ -27,8 +27,10 @@ private:
 	const float INPUT_BUFFER_LENGTH = 0.1f;
 	const float APPROX_ONE_OVER_ROOT_TWO = 0.70710678f;	// 1 / sqrt(2)
 
-	Animation m_walkDown; // Stores rectangles in sf::IntRect
-	Animation m_walkUp;
+	Animation m_walkUp; // Stores rectangles in sf::IntRect
+	Animation m_walkUpSideways; // Right facing animation, mirrored when facing left
+	Animation m_walkDown; 
+	Animation m_walkSideways; // Right facing animation, mirrored when facing left
 	Animation* m_currentAnimation;
 
 };
